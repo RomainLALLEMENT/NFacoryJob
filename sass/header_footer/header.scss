@@ -1,0 +1,96 @@
+
+.main-title{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 300;
+}
+
+#header{
+    background-color: $lessMainColor;
+    transition: all .3s;
+    .wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Quicksand', sans-serif;
+        padding: 1.5rem;
+        #titre{
+            font-size: 2rem;
+            color: $colorblack;
+        }
+        #spantitre{
+            color: $mainColor;
+        }
+        nav ul{
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            color: black;
+            // Gestion du menu burger
+            .log{
+                transition: .6s;
+                background-color: transparent;
+                padding: .5rem;
+                border-radius: 5px;
+                &:hover{
+                    background-color: rgba(0,0,0,.15);
+                }
+            }
+            .desktop{
+                @include breakpoints(tablettebig){
+                    display: none;
+                }
+            }
+            .mobile{
+                z-index: 20;
+                position: fixed;
+                opacity: 0;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 10px;
+                top: 150px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: all .3s;
+                display: none;
+                width: 75vw;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                text-align: center;
+                gap: 1rem;
+            }
+            .burger{
+                display: none;
+                cursor: pointer;
+                transition: all .25s;
+                &:hover{
+                    opacity: .7;
+                }
+                @include breakpoints(tablettebig){
+                    display: block;
+                }
+            }
+            li{
+                span{
+                    color: $colorblack;
+                }
+                i{
+                    color: $mainColor;
+                    @include hoverColor($mainColorHover);
+                }
+            }
+        }
+        .create{
+            background-color: $mainColor;
+            border-radius: 5px;
+            padding : .5rem;
+            width: 175px;
+            display: flex;
+            justify-content: center;
+            color: white;
+            @include hoverBackgroundColor($mainColorHover);
+        }
+    }
+}
